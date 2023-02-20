@@ -3,28 +3,96 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
+
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Faça o seu cadastro</h1>
+	<h3>Faça o seu cadastro</h3>
 
-	 <form action="salvarpessoa" method="post">
-  <label>Nome</label>
-  <input name="nome">
-  <label>sobrenome</label>
-  <input name="sobrenome">
-  <label>Idade</label>
-  <input name="idade">
-  <input type="submit" value="Salvar">
- </form>
+ 
+  <div class="row">
+    <form class="col s10" action="salvarpessoa" method="post" th:object="${pessoaobj}">
+      <div class="row">
+        <div class="input-field col s2">
+          <input disabled value="I am not editable" id="disabled" type="text" th:field="*{id}">
+          <label for="disabled">ID</label>
+        </div>
+        <div class="input-field col s12">
+          <input placeholder="Placeholder" id="name" name="nome" type="text" class="validate" th:field="*{nome}">
+          <label for="first_name">Nome</label>
+        </div>
+       </div> 
+       <div class="row">
+        <div class="input-field col s6">
+          <input id="rua" type="text" name="rua" class="validate" th:field="*{rua}">
+          <label for="last_name">Rua</label>
+        </div>   
+        <div class="input-field col s2">
+          <input id="bairro" type="text" name="bairro" class="validate" th:field="*{bairro}">
+          <label for="last_name">Bairro</label>
+        </div> 
+        <div class="input-field col s2">
+          <input id="numero" type="text" name="numero" class="validate" th:field="*{numero}">
+          <label for="last_name">Numero</label>
+        </div> 
+        <div class="input-field col s2">
+          <input id="idade" type="text" name="idade" class="validate" th:field="*{idade}">
+          <label for="last_name">idade</label>
+        </div> 
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate" th:field="*{email}">
+          <label for="email">Email</label>
+        </div>
+      </div>
+   <!--   
+      <div class="row">
+        <div class="input-field col s3">
+          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+          <label for="disabled">Numero</label>
+        </div>
+      </div>
+      <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+ <div class="row">
+          <div class="input-field col s6">
+          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+          <label for="disabled">Bairro</label>
+        </div>
+      </div>-->
+      
+      <input class="waves-effect waves-light btn" type="submit" value="Salvar">
+    </form>
+  </div>
+ 
+ <a href="/listapessoas">Listar dados</a>
  
 <table>
   <tr th:each = "pessoa : ${pessoas}">
    <td th:text = "${pessoa.id}"></td>
    <td th:text = "${pessoa.nome}"></td>
-   <td th:text = "${pessoa.sobrenome}"></td>
+   <td th:text = "${pessoa.rua}"></td>
+   <td th:text = "${pessoa.bairro}"></td>
+   <td th:text = "${pessoa.numero}"></td>
+   <td th:text = "${pessoa.email}"></td>
+   <td th:text = "${pessoa.idade}"></td>
+   <td><a th:href="@{/editarpessoa/{idpessoa}(idpessoa=${pessoa.id})}">Editar</a></td>
   </tr>
  </table>
 
+
+ <script type="text/javascript" src="/materialize/js/materialize.js"></script>
+ <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
 </body>
 </html>

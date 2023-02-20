@@ -20,9 +20,14 @@ public class Pessoa implements Serializable {
 
 	private String nome;
 
-	private String sobrenome;
+	private String rua;
+	private String bairro;
+	private int numero;
+	private String email;
 	
 	private int idade;
+
+	
 
 	public Long getId() {
 		return id;
@@ -40,12 +45,36 @@ public class Pessoa implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getSobrenome() {
-		return sobrenome;
+	public String getRua() {
+		return rua;
 	}
 
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public int getIdade() {
