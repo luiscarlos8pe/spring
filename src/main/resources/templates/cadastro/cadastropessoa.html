@@ -75,9 +75,22 @@
       <input class="waves-effect waves-light btn" type="submit" value="Salvar">
     </form>
   </div>
+  
+  <br/>
+   <br/>
  
  <a href="/listapessoas">Listar dados</a>
  
+  <br/>
+   <br/>
+   
+   
+   <form action="pesquisarpessoa" method="post">
+		<label>Pesquia por nome:</label>
+		<input name="nomepesquisa">
+		<input  class="waves-effect waves-light btn" type="submit" value="Buscar">
+	</form>
+   
 <table>
   <tr th:each = "pessoa : ${pessoas}">
    <td th:text = "${pessoa.id}"></td>
