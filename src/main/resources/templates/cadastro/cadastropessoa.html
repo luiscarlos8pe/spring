@@ -34,7 +34,7 @@ form input[type=submit] {
 	<h5>Cadastro de menbros</h5>
 
 
-	<div class="row">
+	<div class="row" >
 		<form class="col s10" action="salvarpessoa" id="formpessoa"
 			method="post" th:object="${pessoaobj}">
 			<div class="row">
@@ -118,7 +118,7 @@ form input[type=submit] {
 		<tbody>
 			<tr th:each="pessoa : ${pessoas}">
 				<td th:text="${pessoa.id}"></td>
-				<td th:text="${pessoa.nome}"></td>
+				<td><a th:href="@{/telefones/{idpessoa}(idpessoa=${pessoa.id})}"><span th:text = "${pessoa.nome}"></span></a></td>
 				<td th:text="${pessoa.rua}"></td>
 				<td th:text="${pessoa.bairro}"></td>
 				<td th:text="${pessoa.numero}"></td>
